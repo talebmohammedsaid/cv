@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Mohammed Said TALEB</title>
+    <style>
+        :root {
+            --ink: #172033;
+            --muted: #526071;
+            --line: #d9e1ea;
+            --soft: #f6f8fb;
+            --accent: #1463b8;
+            --accent-soft: #eaf3ff;
+            --paper: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #eef2f6;
+            color: var(--ink);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.62;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .cv-page {
+            width: min(100%, 980px);
+            margin: 0 auto;
+            background: var(--paper);
+            min-height: 100vh;
+            padding: 44px clamp(18px, 5vw, 58px);
+        }
+
+        .cv-header {
+            display: grid;
+            grid-template-columns: 132px 1fr;
+            gap: 28px;
+            align-items: center;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--ink);
+        }
+
+        .profile-photo {
+            width: 132px;
+            height: 132px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: var(--soft);
+        }
+
+        .identity h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.08;
+            letter-spacing: 0;
+            color: var(--ink);
+        }
+
+        .headline {
+            margin: 8px 0 0;
+            color: var(--accent);
+            font-size: 1.03rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 8px 18px;
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .contact-label {
+            color: var(--ink);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        section {
+            margin-top: 34px;
+        }
+
+        .section-title {
+            margin: 0 0 16px;
+            padding-bottom: 7px;
+            border-bottom: 2px solid var(--ink);
+            color: var(--ink);
+            font-size: 1.16rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        .objective-text {
+            margin: 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            background: var(--soft);
+            color: #263245;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .skills-category {
+            padding: 16px 18px;
+            background: var(--soft);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+        }
+
+        .skills-category h3 {
+            margin: 0 0 10px;
+            color: var(--accent);
+            font-size: 1.02rem;
+            line-height: 1.35;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skills-tags span {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 4px 10px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: var(--paper);
+            color: #2d3a4c;
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .entry {
+            padding: 0 0 16px 16px;
+            border-left: 2px solid var(--line);
+        }
+
+        .entry + .entry {
+            margin-top: 14px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            align-items: baseline;
+        }
+
+        .entry-title {
+            color: var(--ink);
+            font-size: 1.02rem;
+            font-weight: 800;
+        }
+
+        .entry-date {
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .entry-role {
+            margin-top: 2px;
+            color: var(--accent);
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .entry p {
+            margin: 7px 0 0;
+            color: var(--muted);
+        }
+
+        .entry ul {
+            margin: 8px 0 0 20px;
+            padding: 0;
+            color: var(--muted);
+        }
+
+        .entry li {
+            margin-bottom: 4px;
+        }
+
+        .country-block {
+            margin-top: 22px;
+        }
+
+        .country-block:first-of-type {
+            margin-top: 0;
+        }
+
+        .country-title {
+            margin: 0 0 13px;
+            padding: 7px 10px;
+            background: var(--accent-soft);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 6px 6px 0;
+            color: var(--ink);
+            font-size: 1.04rem;
+            font-weight: 800;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .certification {
+            padding: 13px 15px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--soft);
+        }
+
+        .certification strong {
+            display: block;
+            color: var(--ink);
+        }
+
+        @media (max-width: 700px) {
+            .cv-page {
+                padding-top: 26px;
+                padding-bottom: 34px;
+            }
+
+            .cv-header {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin: 0 auto;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .entry-header {
+                display: block;
+            }
+
+            .entry-date {
+                display: block;
+                margin-top: 2px;
+                white-space: normal;
+            }
+        }
+
+        @media print {
+            body {
+                background: var(--paper);
+                font-size: 12px;
+            }
+
+            .cv-page {
+                width: 100%;
+                padding: 0;
+            }
+
+            a {
+                color: var(--ink);
+                text-decoration: none;
+            }
+
+            section {
+                break-inside: avoid;
+                margin-top: 22px;
+            }
+
+            .entry,
+            .skills-category,
+            .certification,
+            .country-block {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="cv-page">
+        <header class="cv-header">
+            <img class="profile-photo" src="IMG_9739.JPG" alt="Photo de Mohammed Said TALEB">
+            <div class="identity">
+                <h1>Mohammed Said TALEB</h1>
+                <p class="headline">Ingénieur Concepteur | Entrepreneur Technologique | CTO & Architecte Logiciel Senior</p>
+                <div class="contact-grid" aria-label="Coordonnées">
+                    <div class="contact-item"><span class="contact-label">Localisation</span><span>Laghouat, Algérie</span></div>
+                    <div class="contact-item"><span class="contact-label">WhatsApp</span><a href="https://wa.me/447566728811">+44 7566 728811</a></div>
+                    <div class="contact-item"><span class="contact-label">Email</span><a href="mailto:talebmohammedsaid@gmail.com">talebmohammedsaid@gmail.com</a></div>
+                    <div class="contact-item"><span class="contact-label">Portfolio</span><a href="https://portfolio.veds.dev/accueil" target="_blank" rel="noopener">portfolio.veds.dev/accueil</a></div>
+                    <div class="contact-item"><span class="contact-label">LinkedIn</span><a href="https://www.linkedin.com/in/talebmohammedsaid/" target="_blank" rel="noopener">linkedin.com/in/talebmohammedsaid</a></div>
+                    <div class="contact-item"><span class="contact-label">GitHub</span><a href="https://github.com/talebmohammedsaid" target="_blank" rel="noopener">github.com/talebmohammedsaid</a></div>
+                    <div class="contact-item"><span class="contact-label">Google Play</span><a href="https://play.google.com/store/apps/developer?id=Taleb+Mohammed+Said" target="_blank" rel="noopener">Taleb Mohammed Said</a></div>
+                    <div class="contact-item"><span class="contact-label">Mostaql</span><a href="https://mostaql.com/u/talebsaid" target="_blank" rel="noopener">mostaql.com/u/talebsaid</a></div>
+                    <div class="contact-item"><span class="contact-label">Facebook</span><a href="https://www.facebook.com/user299503xx/" target="_blank" rel="noopener">facebook.com/user299503xx</a></div>
+                </div>
+            </div>
+        </header>
+
+        <section aria-labelledby="objective-title">
+            <h2 class="section-title" id="objective-title">Objectif Académique</h2>
+            <p class="objective-text">
+                Ingénieur concepteur et entrepreneur technologique, fondateur d'agence numérique et concepteur de solutions SaaS internationales, je combine une base scientifique solide, une pratique avancée de l'architecture logicielle et une expérience terrain dans la livraison de plateformes critiques pour plusieurs marchés. Mon parcours associe modélisation relationnelle, algorithmique appliquée, calcul matriciel, conception cloud et pilotage technique de produits numériques. En parallèle, je poursuis une formation continue en informatique quantique afin d'approfondir les liens entre calcul scientifique, cryptographie moderne, optimisation et systèmes logiciels de nouvelle génération.
+            </p>
+        </section>
+
+        <section aria-labelledby="skills-title">
+            <h2 class="section-title" id="skills-title">Compétences Techniques</h2>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <h3>Calcul Scientifique, Algorithmique & Langages</h3>
+                    <div class="skills-tags">
+                        <span>C / C++</span>
+                        <span>Python</span>
+                        <span>Java</span>
+                        <span>Calcul matriciel</span>
+                        <span>Algèbre linéaire</span>
+                        <span>Logique mathématique</span>
+                        <span>Structures de données</span>
+                        <span>Optimisation algorithmique</span>
+                        <span>Complexité</span>
+                        <span>Fondements du calcul quantique</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Architecture Logicielle, Frameworks & Cloud</h3>
+                    <div class="skills-tags">
+                        <span>Architecture SaaS</span>
+                        <span>Microservices</span>
+                        <span>Laravel</span>
+                        <span>Next.js</span>
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>APIs REST</span>
+                        <span>UML</span>
+                        <span>Merise MCD / MLD</span>
+                        <span>MVC</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Architecture des Réseaux, Systèmes & Sécurité</h3>
+                    <div class="skills-tags">
+                        <span>Réseaux locaux LAN sécurisés</span>
+                        <span>Sécurité des flux critiques</span>
+                        <span>Administration Linux</span>
+                        <span>Administration Windows</span>
+                        <span>DevOps</span>
+                        <span>CI/CD</span>
+                        <span>Git</span>
+                        <span>GitHub</span>
+                        <span>AWS</span>
+                        <span>Infrastructures IT</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Bases de Données & Technologies Avancées / IA</h3>
+                    <div class="skills-tags">
+                        <span>PostgreSQL</span>
+                        <span>MySQL</span>
+                        <span>Firebase</span>
+                        <span>Firestore</span>
+                        <span>Optimisation SQL</span>
+                        <span>Modélisation relationnelle</span>
+                        <span>Data Science</span>
+                        <span>Machine Learning</span>
+                        <span>Prompt Engineering</span>
+                        <span>Agents IA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="education-title">
+            <h2 class="section-title" id="education-title">Cursus Académique & Formation Continue</h2>
+            <article class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">Formation continue en informatique quantique</div>
+                    <div class="entry-date">Décembre 2023 - Présent</div>
+                </div>
+                <div class="entry-role">KAIST - Korea Advanced Institute of Science and Technology</div>
+                <p>Approfondissement des fondements du calcul quantique, de l'algorithmique avancée et des perspectives de cryptographie post-quantique.</p>
+            </article>
+
+            <article class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">Ingénierie Informatique - Double cursus</div>
+                    <div class="entry-date">Septembre 2018 - Présent</div>
+                </div>
+                <div class="entry-role">Arab Open University</div>
+                <p>Formation en génie logiciel, programmation orientée objet, bases de données, systèmes et ingénierie des applications.</p>
+            </article>
+
+            <article class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">Bachelor's Degree - Ingénierie Informatique</div>
+                    <div class="entry-date">Septembre 2018 - Juin 2024</div>
+                </div>
+                <div class="entry-role">Université Amar Telidji de Laghouat, Algérie</div>
+                <p>Parcours centré sur la conception logicielle, les architectures applicatives, les bases de données et les systèmes informatiques.</p>
+            </article>
+
+            <article class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">Baccalauréat en Mathématiques</div>
+                    <div class="entry-date">Algérie</div>
+                </div>
+                <div class="entry-role">Formation scientifique initiale</div>
+                <p>Base académique en algèbre linéaire, géométrie matricielle, logique fondamentale et raisonnement mathématique.</p>
+            </article>
+        </section>
+
+        <section aria-labelledby="projects-title">
+            <h2 class="section-title" id="projects-title">Historique des Projets & Expériences Entrepreneuriales</h2>
+
+            <div class="country-block">
+                <h3 class="country-title">Algérie</h3>
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Team Source Petroleum - ERP de gestion du personnel</div>
+                        <div class="entry-date">Mars 2026 - Avril 2026</div>
+                    </div>
+                    <div class="entry-role">Ingénieur Logiciel ERP / Architecte Logiciel Senior</div>
+                    <ul>
+                        <li>Architecture et modélisation relationnelle complète d'un ERP de gestion du personnel en environnement industriel.</li>
+                        <li>Conception d'un déploiement sur réseau local sécurisé avec structuration des accès, des flux et des données critiques.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">DZMCP, Dentolink, Hatli M3ak - Applications métiers</div>
+                        <div class="entry-date">Janvier 2024 - Présent</div>
+                    </div>
+                    <div class="entry-role">Entrepreneur / Architecte Logiciel Senior</div>
+                    <ul>
+                        <li>Conception de plateformes métier pour nettoyage industriel, gestion de cliniques dentaires et logistique collaborative.</li>
+                        <li>Formalisation des modèles de données, des parcours utilisateurs, des APIs et des modules d'administration.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Agence numérique Ved'S</div>
+                        <div class="entry-date">Mai 2022 - Présent</div>
+                    </div>
+                    <div class="entry-role">Fondateur / CTO / Entrepreneur Technologique</div>
+                    <ul>
+                        <li>Fondation et direction technique d'une agence numérique spécialisée dans les applications web, mobiles et SaaS.</li>
+                        <li>Supervision des choix d'architecture, de l'infrastructure, de la modélisation et du pilotage technique sur plus de 15 projets.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Team Source Petroleum - Supervision informatique & réseaux</div>
+                        <div class="entry-date">Janvier 2021 - Octobre 2021</div>
+                    </div>
+                    <div class="entry-role">Superviseur Informatique / Systèmes & Sécurité</div>
+                    <ul>
+                        <li>Supervision des infrastructures technologiques en contexte industriel pétrolier.</li>
+                        <li>Sécurisation des flux de données critiques et administration des environnements systèmes et réseaux.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="country-block">
+                <h3 class="country-title">Arabie Saoudite</h3>
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">LAVO - Plateforme Carwash</div>
+                        <div class="entry-date">Août 2024 - Présent</div>
+                    </div>
+                    <div class="entry-role">Architecte Logiciel Senior / CTO Projet</div>
+                    <ul>
+                        <li>Conception d'une plateforme SaaS internationale de réservation, dispatching et suivi opérationnel pour services de lavage automobile.</li>
+                        <li>Structuration des modules de géolocalisation, réservation, gestion des équipes, paiements et administration.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Daifi - Riyad</div>
+                        <div class="entry-date">Août 2024 - Présent</div>
+                    </div>
+                    <div class="entry-role">Ingénieur Logiciel Senior / Architecte Applicatif</div>
+                    <ul>
+                        <li>Architecture d'une plateforme dédiée à la contractualisation, au suivi et à la gestion des flux de travailleurs domestiques.</li>
+                        <li>Conception des processus métier, des profils utilisateurs et des espaces d'administration.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">The Cuisine</div>
+                        <div class="entry-date">Août 2024 - Présent</div>
+                    </div>
+                    <div class="entry-role">Lead Mobile Developer / Architecte Produit</div>
+                    <ul>
+                        <li>Modélisation d'une application de logistique et livraison haute précision pour restaurants gastronomiques.</li>
+                        <li>Conception des flux de commande, de dispatching, de suivi temps réel et de coordination opérationnelle.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="country-block">
+                <h3 class="country-title">Éthiopie</h3>
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Aurora - Chaîne de cafés</div>
+                        <div class="entry-date">2024 - Présent</div>
+                    </div>
+                    <div class="entry-role">Développeur Logiciel Web / Architecte Interface Admin</div>
+                    <ul>
+                        <li>Analyse de l'architecture logicielle et conception du panneau de contrôle d'administration financière.</li>
+                        <li>Structuration des tableaux de bord, des flux de gestion et des accès pour l'exploitation multi-sites.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="country-block">
+                <h3 class="country-title">États-Unis</h3>
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Throughput Agency & ChartPrime</div>
+                        <div class="entry-date">2024 - Présent</div>
+                    </div>
+                    <div class="entry-role">Ingénieur Logiciel Externe / Solutions Données</div>
+                    <ul>
+                        <li>Analyse d'infrastructures de données complexes et développement de solutions d'optimisation de flux logistiques.</li>
+                        <li>Intégration de modèles analytiques de performance pour agences technologiques et plateformes financières américaines.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="country-block">
+                <h3 class="country-title">Europe</h3>
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Fluxora OS - SaaS restauration</div>
+                        <div class="entry-date">2025 - Présent</div>
+                    </div>
+                    <div class="entry-role">Entrepreneur / CTO / Architecte Logiciel Principal</div>
+                    <ul>
+                        <li>Création d'un système d'exploitation cloud SaaS dédié à la gestion globale de la restauration sur le marché européen.</li>
+                        <li>Modélisation des flux QR Code, synchronisation cuisine en temps réel et automatisation de la gestion des stocks d'ingrédients.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="country-block">
+                <h3 class="country-title">Libye</h3>
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">IXPO, SILIA & On Time - Tripoli</div>
+                        <div class="entry-date">Décembre 2024 - 2025</div>
+                    </div>
+                    <div class="entry-role">Cloud Architect / Lead Developer / Architecte Logiciel Senior</div>
+                    <ul>
+                        <li>IXPO : modélisation et déploiement cloud de l'infrastructure d'une plateforme événementielle nationale.</li>
+                        <li>SILIA : conception d'une application distribuée d'acheminement et de dispatching logistique urbain.</li>
+                        <li>On Time : conception d'un algorithme de planification automatisée temps réel pour services professionnels.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-header">
+                        <div class="entry-title">Sokkary & Khatwa</div>
+                        <div class="entry-date">Août 2024 - Présent</div>
+                    </div>
+                    <div class="entry-role">Ingénieur Logiciel Principal / Architecte Produit</div>
+                    <ul>
+                        <li>Sokkary : plateforme HealthTech intelligente de suivi clinique et sécurisation de bases de données médicales.</li>
+                        <li>Khatwa : écosystème applicatif de transport et VTC avec géolocalisation, routage cartographique et suivi temps réel.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section aria-labelledby="certifications-title">
+            <h2 class="section-title" id="certifications-title">Certifications</h2>
+            <div class="certifications">
+                <div class="certification">
+                    <strong>User Experience - UX/UI Design</strong>
+                    Meta Developers / Cursus universitaire - Janvier 2024
+                </div>
+                <div class="certification">
+                    <strong>Programmation Java Orientée Objet</strong>
+                    Arab Open University - Juin 2023
+                </div>
+                <div class="certification">
+                    <strong>Développement Mobile Cross-Platform</strong>
+                    TeraCourses - ID C-639498 - Juillet 2022
+                </div>
+                <div class="certification">
+                    <strong>Data Science & Machine Learning</strong>
+                    Meta Developers - Juillet 2022
+                </div>
+                <div class="certification">
+                    <strong>Computer Engineering Advanced Training</strong>
+                    Princess Sumaya University for Technology - Juillet 2022
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
